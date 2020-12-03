@@ -10,9 +10,16 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
 
+    // day 1
     //fixExpenseReports();
     //fixExpenseReports3();
-    fetchValidPasswords();
+
+    // day 2
+    //fetchValidPasswords();
+
+    // day 3
+    tobogganRide();
+
   }
 
   private static void fixExpenseReports() throws Exception {
@@ -57,5 +64,23 @@ public class Main {
     }
 
     System.out.println(validPasswords);
+  }
+
+  private static void tobogganRide() throws Exception {
+
+    char[][] map = Utils.parseResourceIntoArray("tobogganMap");
+
+    int colIx = 0, rowIx = 0, numTrees = 0;
+    while (rowIx < map.length) {
+
+      if (map[rowIx][colIx] == '#') {
+        numTrees++;
+      }
+
+      colIx = (colIx + 1) % map[rowIx].length;
+      rowIx = rowIx + 2;
+    }
+
+    System.out.println(numTrees);
   }
 }

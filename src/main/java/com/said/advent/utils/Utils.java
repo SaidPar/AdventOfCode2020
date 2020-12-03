@@ -60,4 +60,21 @@ public final class Utils {
 
     return stringList;
   }
+
+  public static char[][] parseResourceIntoArray(String fileName) throws Exception {
+    List<String> stringList = parseResourceIntoList(fileName);
+    int cols = stringList.get(0).length();
+    int rows = stringList.size();
+
+    char[][] array = new char[rows][cols];
+    for (int rowIx = 0; rowIx < rows; rowIx++) {
+
+      String line = stringList.get(rowIx);
+      for (int colIx = 0; colIx < line.length(); colIx++) {
+        array[rowIx][colIx] = line.charAt(colIx);
+      } // end cols
+    } // end rows
+
+    return array;
+  }
 }
